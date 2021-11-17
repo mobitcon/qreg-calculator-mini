@@ -32,9 +32,14 @@ function doCalculation(inputValue) {
             return;
            
         }
+    }
+    //This is not that good...
+    if(bipValue == 2048)
+    {
+        bipValue = 0;
     }    
     bipBits = dec2bin(bipValue,12)
-    console.log(bipBits)
+
     document.getElementById("seed-word").innerHTML = bipWord;
     document.getElementById("bip39pos").innerHTML = bipValue;
     document.getElementById("bip39posBits").innerHTML = bipBits;

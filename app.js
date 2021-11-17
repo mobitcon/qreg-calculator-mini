@@ -38,7 +38,7 @@ function doCalculation(inputValue) {
     {
         bipValue = 0;
     }    
-    bipBits = dec2bin(bipValue,12)
+    bipBits = dec2bin(bipValue,11)
 
     document.getElementById("seed-word").innerHTML = bipWord;
     document.getElementById("bip39pos").innerHTML = bipValue;

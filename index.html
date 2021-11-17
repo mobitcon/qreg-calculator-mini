@@ -1,54 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+
+<head>
+  <meta charset="utf-8">
+  <title>qreg 11 calculator</title>
+</head>
+
+<body onload="init()">
 <h1>qreg 11 calculator</h1>
 
-
-Source code can be found here : <a href="https://github.com/mobitcon/qreg-calculator">qreg calculator on GitHub</a>
+Source code can be found here : <a href="https://github.com/mobitcon/qreg-calculator-mini">qreg 11 calculator on GitHub</a>
 <br>
 <div id="wrappanel">
 <div class="card thumbnail">
   <h2>Input</h2>
-  <label>Input Value has to be between 1 to 2048! or each word from bip39 wordlist</label>
-  <fieldset>
-    
-   
+    <fieldset>
+    <input id="inputValueBox" onchange="calcRow(this)"/>   
   </fieldset>
-  <br>
-  <br>
-  <table class="a" id="parityTable">
-    <tbody><tr>
-      <th>seed-word</th>
-      <th>bip39pos</th>
-      <th>bip39pos Bits</th>
-     
-    </tr>
-  </tbody></table>
+  <label id="ValueError">Input Value has to be between 1 to 2048 or a word from bip39 wordlist</label>
+  <table style="width:100%">
+      <tr>
+        <th>seed-word</th>
+        <th>bip39pos</th>
+        <th>bip39pos Bits</th>     
+      </tr>
+      <tr>
+        <td><label id="seed-word"></label></td>
+        <td><label id="bip39pos"></label></td>
+        <td> <label id="bip39posBits"></label></td>
+      </tr>
+  </table>
 </div>  
-<div class="thumbnail">
-<div class="cardEnclosure">    
-  <div class="card" id="card1">    
-      <div class="containerDiv">
-          <div class="leftDiv">
-              <table width="100%" class="noBorder" id="card1table1">
-              </table>
-          </div>
-        
-          <div class="middleDiv">
-            <div class="dot"></div>
-            <label>
-                
-           </label>
-            <div class="cellOpenNone"></div>
-            <div class="cellOpenNone"></div>
-            <div class="cellOpenNone"></div>
-            <div class="cellOpenNone"></div>
-            <div class="cellOpenNone"></div>
-            <br>
-            <div class="dot"></div>
-          </div>			  
-          
-          <div class="rightDiv">
-              <table class="noBorder" id="card1table2"></table>    
-          </div>
-      </div>			
-  </div>
-</div>
+<script src="app.js">
+</script>
+<noscript>You need to enable JavaScript to view the full site.</noscript>
+</body>
+
+</html>
 

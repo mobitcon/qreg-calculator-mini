@@ -16,23 +16,21 @@
 
 Source code can be found here : <a href="https://github.com/mobitcon/qreg-calculator-mini">qreg 11 calculator on GitHub</a>
 <br>
-<div id="wrappanel">
-<div class="card thumbnail">
-  <h2>Input</h2>
-    <fieldset>
-    <input id="inputValueBox" onchange="calcRow(this)"/>   
-  </fieldset>
+<div>
   <label id="ValueError">Input Value has to be between 1 to 2048 or a word from bip39 wordlist</label>
   <table style="width:100%">
+    <tr>
+      <th>seed-word</th>
+      <td><input  id="seed-word" onchange="calc(this)" ></label></td>
+    </tr>
       <tr>
-        <th>seed-word</th>
+      
         <th>bip39pos</th>
-        <th>bip39pos Bits</th>     
+        <td><input  id="bip39pos" onchange="calc(this)" ></label></td>     
       </tr>
       <tr>
-        <td><label id="seed-word"></label></td>
-        <td><label id="bip39pos"></label></td>
-        <td> <label id="bip39posBits"></label></td>
+        <th>bip39pos Bits</th>        
+        <td> <input id="bip39posBits" onchange="calcFromBits(this)"></label></td>
       </tr>
   </table>
 </div>  
@@ -42,4 +40,3 @@ Source code can be found here : <a href="https://github.com/mobitcon/qreg-calcul
 </body>
 
 </html>
-

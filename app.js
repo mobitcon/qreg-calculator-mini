@@ -2,15 +2,33 @@ function init() {
     SetError('ValueError', "hidden");
 }
 
-function calcRow(elem) {
-    let Input = elem.value;
-    doCalculation(Input);
+function calc(elem)
+{
+    doCalc(elem.value);
 }
-function doCalculation(inputValue) {
-    SetError('ValueError', "hidden");    
-    document.getElementById("seed-word").innerHTML = '';
-    document.getElementById("bip39pos").innerHTML = '';
-    document.getElementById("bip39posBits").innerHTML = '';
+
+function calcFromBits(elem)
+{
+  var number = parseInt(elem.value, 2);
+    if(number === 0)
+    {
+        //the stupid special case for the 'zoo' word.......
+        clearValues;
+        bipWord = bip39words[2048 -1];
+        document.getElementById("seed-word").value = bipWord;
+        document.getElementById("bip39pos").value = 2048;
+        document.getElementById("bip39posBits").value = elem.value;
+    }
+    else
+    {
+      doCalc(number)
+    }
+
+}
+
+function doCalc(inputValue) {
+            
+    clearValues();
 
     var indexOfInput = (bip39words.indexOf(inputValue));
     if(indexOfInput > -1)
@@ -21,7 +39,7 @@ function doCalculation(inputValue) {
     else
     { 
         var n = Math.floor(Number(inputValue));
-        if (n !== NaN && n !== Infinity && String(n) === inputValue && (n <= 2048 && n >= 1)) 
+        if (n !== NaN && n !== Infinity && String(n) == inputValue && (n < 2048 && n >= 1)) 
         {
             bipValue = inputValue;
             bipWord = bip39words[inputValue -1];
@@ -40,9 +58,16 @@ function doCalculation(inputValue) {
     }    
     bipBits = dec2bin(bipValue,11)
 
-    document.getElementById("seed-word").innerHTML = bipWord;
-    document.getElementById("bip39pos").innerHTML = bipValue;
-    document.getElementById("bip39posBits").innerHTML = bipBits;
+    document.getElementById("seed-word").value = bipWord;
+    document.getElementById("bip39pos").value = bipValue;
+    document.getElementById("bip39posBits").value = bipBits;
+}
+
+function clearValues() {
+    SetError('ValueError', "hidden");
+    document.getElementById("seed-word").value = '';
+    document.getElementById("bip39pos").value = '';
+    document.getElementById("bip39posBits").value = '';
 }
 
 function dec2bin(dec, totalBits) {

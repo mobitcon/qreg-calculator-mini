@@ -1,4 +1,9 @@
+window.addEventListener("load", init());
+
 function init() {
+	document.getElementById("seed-word").addEventListener('change', function() {calc(this);},false);
+	document.getElementById("bip39pos").addEventListener('change', function() {calc(this);},false);
+	document.getElementById("bip39posBits").addEventListener('change', function() {calcFromBits(this);},false);
     SetError('ValueError', "hidden");
 }
 
@@ -39,7 +44,7 @@ function doCalc(inputValue) {
     else
     { 
         var n = Math.floor(Number(inputValue));
-        if (n !== NaN && n !== Infinity && String(n) == inputValue && (n < 2048 && n >= 1)) 
+        if (n !== NaN && n !== Infinity && String(n) == inputValue && (n <= 2048 && n >= 1)) 
         {
             bipValue = inputValue;
             bipWord = bip39words[inputValue -1];
@@ -52,14 +57,16 @@ function doCalc(inputValue) {
         }
     }
     //This is not that good...
+	bipDisplayValue = bipValue
     if(bipValue == 2048)
     {
         bipValue = 0;
+		bipDisplayValue == 2048
     }    
     bipBits = dec2bin(bipValue,11)
 
     document.getElementById("seed-word").value = bipWord;
-    document.getElementById("bip39pos").value = bipValue;
+    document.getElementById("bip39pos").value = bipDisplayValue;
     document.getElementById("bip39posBits").value = bipBits;
 }
 

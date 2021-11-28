@@ -1,4 +1,9 @@
+window.addEventListener("load", init());
+
 function init() {
+	document.getElementById("seed-word").addEventListener('change', function() {calc(this);},false);
+	document.getElementById("bip39pos").addEventListener('change', function() {calc(this);},false);
+	document.getElementById("bip39posBits").addEventListener('change', function() {calcFromBits(this);},false);
     SetError('ValueError', "hidden");
 }
 

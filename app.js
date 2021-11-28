@@ -1,9 +1,10 @@
 window.addEventListener("load", init());
 
 function init() {
-	document.getElementById("seed-word").addEventListener('change', function() {calc(this);},false);
-	document.getElementById("bip39pos").addEventListener('change', function() {calc(this);},false);
-	document.getElementById("bip39posBits").addEventListener('change', function() {calcFromBits(this);},false);
+	//wordpress filters input elements, so we have to add them in code....
+	document.getElementById("seed-word-cell").innerHTML = "<input id=\"seed-word\" onchange=\"calc(this)\"/>";
+	document.getElementById("bip39pos-cell").innerHTML = "<input id=\"bip39pos\" onchange=\"calc(this)\"/>";
+	document.getElementById("bip39posBits-cell").innerHTML = "<input id=\"bip39posBits\" onchange=\"calcFromBits(this)\"/>";	
     SetError('ValueError', "hidden");
 }
 
